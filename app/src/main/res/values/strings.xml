@@ -1,3 +1,10 @@
 <resources>
-  <string name="app_name">FireBase_Example</string>
+    <string name="app_name">FireBase Article App</string>
+    <string name="tieu_de_01">Tiêu đề bài viết mẫu</string>
+    <string name="td_chi_tiet">Tiêu đề bài viết chi tiết</string>
+    <string name="noi_dung_01">Nội dung tóm tắt của bài viết được hiển thị tại đây...</string>
+    <string name="nd_chi_tiet">Nội dung bài viết chi tiết sẽ hiển thị ở đây...</string>
+    <string name="anh_bia">Ảnh bìa bài viết</string>
+    <string name="views_0">Views: 0</string>
+    <string name="new_luot_xem">Lượt xem: 0</string>
 </resources>
