@@ -22,6 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ShowDataActivity extends AppCompatActivity {
@@ -61,7 +62,7 @@ public class ShowDataActivity extends AppCompatActivity {
                 article.increaseView();
                 adapter.notifyItemChanged(position);
 
-                // Cập nhật lượt xem lên Firestore
+                // Cập nhật viewCount trên Firestore
                 if (article.getId() != null) {
                     db.collection("articles").document(article.getId())
                             .update("viewCount", article.getViewCount())
@@ -93,6 +94,8 @@ public class ShowDataActivity extends AppCompatActivity {
                         article.setId(q.getId());
                         articles.add(article);
                     }
+                    // Sắp xếp bài viết mới nhất lên đầu danh sách
+                    Collections.sort(articles, (a1, a2) -> Long.compare(a2.getTimestamp(), a1.getTimestamp()));
                     adapter.update(articles);
                     adapter.notifyDataSetChanged();
                 }

@@ -13,6 +13,7 @@ public class Article implements Serializable {
     private int imgCover;
     private String imgName;
     private int viewCount;
+    private long timestamp = System.currentTimeMillis();
 
     public Article() {
         // Constructor rỗng cần thiết cho Firebase Firestore
@@ -23,6 +24,7 @@ public class Article implements Serializable {
         this.content = content;
         this.imgCover = imgCover;
         this.viewCount = viewCount;
+        this.timestamp = System.currentTimeMillis();
     }
 
     public Article(String title, String content, String imgName, int viewCount) {
@@ -30,6 +32,7 @@ public class Article implements Serializable {
         this.content = content;
         this.imgName = imgName;
         this.viewCount = viewCount;
+        this.timestamp = System.currentTimeMillis();
     }
 
     @Exclude
@@ -79,6 +82,14 @@ public class Article implements Serializable {
 
     public void setViewCount(int viewCount) {
         this.viewCount = viewCount;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
     public void increaseView() {

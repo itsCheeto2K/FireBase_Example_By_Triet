@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             Article newArticle = new Article(title, content, imgName, 0);
+            newArticle.setTimestamp(System.currentTimeMillis());
+
             db.collection("articles").add(newArticle)
                     .addOnSuccessListener(documentReference -> {
                         Toast.makeText(this, "Đã thêm bài viết vào Firebase!", Toast.LENGTH_SHORT).show();
